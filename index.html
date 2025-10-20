@@ -1,123 +1,76 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="he">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="theme-color" content="#52b788" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="apple-mobile-web-app-title" content="Inside" />
-    <link rel="manifest" href="./manifest.json" />
-    <link rel="icon" href="./favicon.png" />
-    <link rel="apple-touch-icon" href="./icon.png" />
-    <title>Inside - Grow from within</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#52b788">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Inside">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="favicon.png">
+    <title>Inside App</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
         body {
-            font-family: 'Poppins', Arial, sans-serif;
+            font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #f5f5f5, #e8f0e8);
+            margin: 0;
+            padding: 20px;
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 20px;
         }
-        
         .container {
             background: white;
             padding: 40px;
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(82, 183, 136, 0.15);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             text-align: center;
             max-width: 400px;
-            width: 100%;
         }
-        
-        .logo {
-            margin-bottom: 30px;
-        }
-        
         h1 {
-            font-size: 36px;
-            font-weight: 700;
             color: #1b4332;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
+            font-size: 32px;
+            margin: 20px 0;
         }
-        
         .description {
-            font-size: 16px;
-            color: #374151;
+            color: #666;
             line-height: 1.6;
             margin-bottom: 30px;
         }
-        
-        .download-btn {
-            background: linear-gradient(135deg, #52b788, #2d5016);
+        .install-btn {
+            background: #52b788;
             color: white;
             padding: 15px 30px;
             border: none;
-            border-radius: 12px;
+            border-radius: 10px;
             font-size: 16px;
-            font-weight: 600;
             cursor: pointer;
-            transition: transform 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .download-btn:hover {
-            transform: translateY(-2px);
-        }
-        
-        .install-instructions {
-            margin-top: 20px;
-            font-size: 14px;
-            color: #666;
-            line-height: 1.4;
-        }
-        
-        @media (max-width: 480px) {
-            .container {
-                padding: 30px 20px;
-            }
-            
-            h1 {
-                font-size: 28px;
-            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="logo">
-            <svg width="80" height="80" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 20px;">
-              <circle cx="60" cy="60" r="50" fill="none" stroke="#1b4332" stroke-width="4"/>
-              <circle cx="60" cy="60" r="35" fill="none" stroke="#2d5016" stroke-width="3"/>
-              <circle cx="60" cy="60" r="20" fill="none" stroke="#52b788" stroke-width="3"/>
-              <circle cx="60" cy="60" r="6" fill="#52b788"/>
-            </svg>
-            <h1>INSIDE</h1>
-        </div>
+        <svg width="80" height="80" style="margin-bottom: 20px;">
+            <circle cx="40" cy="40" r="35" fill="none" stroke="#1b4332" stroke-width="3"/>
+            <circle cx="40" cy="40" r="25" fill="none" stroke="#2d5016" stroke-width="2"/>
+            <circle cx="40" cy="40" r="15" fill="none" stroke="#52b788" stroke-width="2"/>
+            <circle cx="40" cy="40" r="4" fill="#52b788"/>
+        </svg>
+        
+        <h1>INSIDE</h1>
         
         <div class="description">
-            מלווה מנטלית מבוססת AI<br>
-            לפעמים אנחנו מגיעים לרגע שבו צריך לעצור, להסתכל מסביב, ולהבין לאן עכשיו?
+            מלווה מנטלית מבוססת AI
         </div>
         
-        <a href="#" class="download-btn" onclick="showInstallInstructions()">
-            התקן את האפליקציה
-        </a>
-        
-        <div class="install-instructions">
-            <strong>איך להתקין:</strong><br>
-            <strong>Android:</strong> Chrome ← תפריט (⋮) ← "Add to Home screen"<br>
-            <strong>iPhone:</strong> Safari ← Share (🔗
+        <button class="install-btn">התקן על הנייד</button>
+    </div>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
+</body>
+</html>
