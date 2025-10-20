@@ -45,54 +45,6 @@
             margin-bottom: 30px;
         }
         
-        .target-container {
-            position: relative;
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 20px;
-        }
-        
-        .target-ring {
-            position: absolute;
-            border-radius: 50%;
-            border: 3px solid;
-            box-sizing: border-box;
-        }
-        
-        .ring-1 {
-            width: 80px;
-            height: 80px;
-            border-color: #1b4332;
-            top: 0;
-            left: 0;
-        }
-        
-        .ring-2 {
-            width: 56px;
-            height: 56px;
-            border-color: #2d5016;
-            top: 12px;
-            left: 12px;
-        }
-        
-        .ring-3 {
-            width: 32px;
-            height: 32px;
-            border-color: #52b788;
-            top: 24px;
-            left: 24px;
-        }
-        
-        .center-dot {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: #52b788;
-            border-radius: 50%;
-            top: 35px;
-            left: 35px;
-        }
-        
         h1 {
             font-size: 36px;
             font-weight: 700;
@@ -147,12 +99,12 @@
 <body>
     <div class="container">
         <div class="logo">
-            <div class="target-container">
-                <div class="target-ring ring-1"></div>
-                <div class="target-ring ring-2"></div>
-                <div class="target-ring ring-3"></div>
-                <div class="center-dot"></div>
-            </div>
+            <svg width="80" height="80" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 20px;">
+              <circle cx="60" cy="60" r="50" fill="none" stroke="#1b4332" stroke-width="4"/>
+              <circle cx="60" cy="60" r="35" fill="none" stroke="#2d5016" stroke-width="3"/>
+              <circle cx="60" cy="60" r="20" fill="none" stroke="#52b788" stroke-width="3"/>
+              <circle cx="60" cy="60" r="6" fill="#52b788"/>
+            </svg>
             <h1>INSIDE</h1>
         </div>
         
@@ -168,26 +120,4 @@
         <div class="install-instructions">
             <strong>איך להתקין:</strong><br>
             <strong>Android:</strong> Chrome ← תפריט (⋮) ← "Add to Home screen"<br>
-            <strong>iPhone:</strong> Safari ← Share (🔗) ← "Add to Home Screen"
-        </div>
-    </div>
-
-    <script>
-        // רישום Service Worker
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('./sw.js')
-                    .then(function(registration) {
-                        console.log('SW registered: ', registration);
-                    }, function(registrationError) {
-                        console.log('SW registration failed: ', registrationError);
-                    });
-            });
-        }
-        
-        function showInstallInstructions() {
-            alert('להתקנת האפליקציה:\n\nAndroid: לחץ על תפריט הדפדפן (⋮) ובחר "Add to Home screen"\n\niPhone: לחץ על כפתור השיתוף (🔗) ובחר "Add to Home Screen"\n\nלאחר ההתקנה האפליקציה תופיע על המסך הראשי שלך!');
-        }
-    </script>
-</body>
-</html>
+            <strong>iPhone:</strong> Safari ← Share (🔗
